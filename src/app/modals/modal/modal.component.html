@@ -1,0 +1,18 @@
+<div class="modalInfo">
+  <div class="notification">
+    <div class="IconImage">
+      <img src="assets/sucess.svg" alt="sucess"  *ngIf="modalDatos.estado==='sucess'" />
+      <img src="assets/fallo.svg" alt="failure"  *ngIf="modalDatos.estado==='failure'" />
+  </div>
+  <div class="tittle">
+    <h2>{{modalDatos.titulo}}</h2>
+  </div>
+  <div class="description">
+    <p>{{modalDatos.descripcion}}</p>
+  </div>
+  <div class="notificationButton">
+    <button class="btn-close" (click)="close()">Cerrar</button>
+
+  </div>
+  </div>
+</div>

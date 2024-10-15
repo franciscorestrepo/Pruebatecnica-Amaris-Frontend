@@ -1,0 +1,62 @@
+
+
+.titulo h2 {
+  text-align: center;
+  color: #333;
+  margin-bottom: 20px;
+}
+
+.transacciones-tabla {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.transacciones-tabla th, .transacciones-tabla td {
+  padding: 12px;
+  text-align: left;
+  border-bottom: 1px solid #ddd;
+}
+
+.transacciones-tabla th {
+  background-color: #4CAF50;
+  color: white;
+}
+
+.estado-activo {
+  color: green;
+  font-weight: bold;
+}
+
+.estado-inactivo {
+  color: red;
+  font-weight: bold;
+}
+
+.accion-eliminar {
+  text-align: center;
+}
+
+.accion-eliminar img {
+  width: 24px;
+  height: 24px;
+  cursor: pointer;
+}
+
+.boton {
+  text-align: center;
+  margin-top: 20px;
+}
+
+.btn-devolverse {
+  background-color: #007bff;
+  color: white;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.btn-devolverse:hover {
+  background-color: #b31e00;
+}
+

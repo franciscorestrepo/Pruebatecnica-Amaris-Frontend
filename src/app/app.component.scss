@@ -1,0 +1,18 @@
+.page-container {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh; /* Hace que el contenedor tenga al menos el tamaño de la ventana */
+}
+
+/* El contenido principal ocupa todo el espacio disponible */
+.main-content {
+  flex: 1;
+}
+
+/* El footer se mantiene al final de la página */
+.footer {
+  background-color: #f8f9fa; /* Ejemplo de color de fondo */
+  padding: 20px;
+  text-align: center;
+  border-top: 1px solid #ddd;
+}

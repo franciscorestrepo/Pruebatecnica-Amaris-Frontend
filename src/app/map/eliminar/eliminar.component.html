@@ -1,0 +1,40 @@
+
+<app-info-cliente></app-info-cliente>
+
+<div class="content">
+  <div class="box">
+
+    <div class="titulo">
+      <h2>Historial del Cliente</h2>
+    </div>
+
+    <table class="transacciones-tabla">
+      <thead>
+        <tr>
+          <th>Fondo</th>
+          <th>Monto</th>
+          <th>Categoria</th>
+          <th>Fecha de Acción</th>
+          <th>Acción</th> <!-- Columna nueva para la caneca -->
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let transaccion of transacciones">
+          <td>{{ getFondoNombre(transaccion.fondoId) }}</td>
+          <td>{{ transaccion.monto | currency }}</td>
+          <td>{{ getTipoFondo(transaccion.fondoId) }}</td>
+          <td>{{ transaccion.timestamp | date:'yyyy-MM-dd' }}</td>
+
+          <!-- Nueva columna para la acción de eliminar con caneca -->
+          <td class="accion-eliminar">
+            <img src="assets/eliminar.svg" alt="Eliminar" (click)="eliminarTransaccion(transaccion)" />
+          </td>
+        </tr>
+      </tbody>
+    </table>
+
+    <div class="boton">
+      <button class="btn-devolverse" (click)="devolverse()">Devolverse</button>
+    </div>
+  </div>
+</div>

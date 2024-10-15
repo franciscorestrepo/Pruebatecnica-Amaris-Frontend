@@ -1,0 +1,67 @@
+<app-info-cliente></app-info-cliente>
+<div class="content">
+  <div class="box">
+    <form [formGroup]="this.fondosGroup" >
+      <div class="row">
+        <!-- Select para nombre -->
+        <div class="form-group col-md-6">
+          <label for="nombreSelect">Fondos:</label>
+          <select id="nombreSelect" (change)="cambioFondo()" class="form-control" formControlName="fondos"  maxlength="30">
+
+            <option *ngFor="let fondo of fondos"  [value]="fondo.fondoId">{{fondo.nombre}}</option>
+
+            <!-- Más opciones -->
+          </select>
+        </div>
+
+        <!-- Campo para números -->
+        <div class="form-group col-md-6">
+          <label for="numeroInput">Número:(* minimo: {{fondo| currency}})</label>
+          <input type="number" id="numeroInput"  formControlName="inversion" class="form-control" placeholder="Ingrese un número">
+        </div>
+      </div>
+
+      <div class="row">
+        <!-- Grupo de Radio Buttons -->
+        <div class="form-group col-md-6">
+          <label>Preferencia de contacto</label>
+          <div class="form-check">
+            <input type="radio" (change)="aplicarValidacionesCondicionales(this.fondosGroup.get('envio'))"  formControlName="envio" id="contactoMail" name="contacto" class="form-check-input" value=1 >
+            <label class="form-check-label" for="contactoMail">Correo Electrónico</label>
+          </div>
+          <div class="form-check">
+            <input type="radio" (change)="aplicarValidacionesCondicionales(this.fondosGroup.get('envio'))" formControlName="envio" id="contactoCelular" name="contacto" class="form-check-input" value=2>
+            <label class="form-check-label" for="contactoCelular">Teléfono Celular</label>
+          </div>
+        </div>
+
+
+
+        <div class="form-group col-md-6">
+          <div class="form-group" *ngIf="fondosGroup.get('envio')?.value === '1'">
+          <label id="campoDinamicoLabel" for="campoDinamico">Correo Electrónico:</label>
+          <input type="text" formControlName="email" id="campoDinamico" class="form-control" placeholder="Ingrese su correo electrónico">
+        </div>
+        <div class="form-group" *ngIf="fondosGroup.get('envio')?.value === '2'">
+          <label id="campoDinamicoLabel" for="campoDinamico">Celular:</label>
+          <input type="text" formControlName="celular" id="campoDinamico" class="form-control" placeholder="Ingrese su numero de celular">
+        </div>
+        </div>
+      </div>
+
+      <div class=" text-center">
+        <div class="row justify-content-center">
+          <div class="col-auto">
+            <button type="button" class="btn btn-primary" (click)="enviar()" [disabled]="!this.fondosGroup.valid">Enviar</button>
+          </div>
+          <div class="col-auto">
+            <button type="button" class=" btn btn-devolverse" (click)="devolverse()">Devolverse</button>
+          </div>
+        </div>
+      </div>
+
+
+    </form>
+
+  </div>
+</div>
